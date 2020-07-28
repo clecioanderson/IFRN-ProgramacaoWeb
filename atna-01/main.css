@@ -3,10 +3,10 @@ div {
     height: 680px;
 }
 div.lateral {
-    background-color: burlywood;
+    background-color: #888;
     width: 20%;
 }
 div.central {
-    background-color: cadetblue;
+    background-color: #eee;
     width: 60%;
 }
