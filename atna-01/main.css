@@ -1,6 +1,12 @@
-div .lateral {
-    background-color: aliceblue;
+div {
+    float: left;
+    height: 100%;
 }
-div .central {
+div.lateral {
+    background-color: burlywood;
+    width: 20%;
+}
+div.central {
     background-color: cadetblue;
+    width: 60%;
 }
