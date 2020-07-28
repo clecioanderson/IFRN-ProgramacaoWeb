@@ -8,6 +8,29 @@ div.lateral {
 }
 div.central {
     background-color: #eee;
-    width: 60%;
+    width: 40%;
     height: 680px;
+    padding: 10%;
+}
+#teste {
+    background-color: #FF0000;
+    width: 40px;
+    height: 40px;
+    color: #FFF;
+    margin: 5px;
+    border-radius: 80%;
+    padding: 5px;
+}
+.verde {
+    background-color: #007700;
+    width: 40px;
+    height: 40px;
+    color: #FFF;
+    margin: 5px;
+}
+.molde{
+    float: none;
+    height: 60px;
+    width:  220px;
+    background-color: #fff;;
 }
