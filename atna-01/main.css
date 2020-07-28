@@ -1,12 +1,13 @@
 div {
     float: left;
-    height: 680px;
 }
 div.lateral {
     background-color: #888;
     width: 20%;
+    height: 680px;
 }
 div.central {
     background-color: #eee;
     width: 60%;
+    height: 680px;
 }
