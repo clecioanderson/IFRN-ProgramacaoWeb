@@ -7,13 +7,13 @@
 </head>
 <body>
     <div>
-        <p>
-            <input type="text" size="25" id="entrada" placeholder="Insira o item aqui"/><br>
-        </p>
+        <p><br>
+        <input type="text" size="25" id="entrada" placeholder="Insira o item aqui"/><br>
         <button onclick="inserir()">Adicionar</button>
         <button onclick="apagarUltimo()">Remover</button>
         <button onclick="limpar()">Limpar</button>
         <button onclick="listar()">Listar</button>
+        </p>
         <h1>Lista de Compras</h1>
         <ul id="lista"></ul>
     </div>
@@ -42,18 +42,23 @@
         }
     </script>
     <style>
-        div {
-            background-color: #009AAF;
+        div{
             float: left;
         }
         p {
+            background-color: #17dbf5;
             text-align: center;
+            padding: 10px;
+            margin: 1px;
         }
         h1 {
             text-align: center;
         }
         li {
             list-style: none;
+        }
+        input#entrada {
+            margin-bottom: 5px;
         }
     </style>
 </body>
