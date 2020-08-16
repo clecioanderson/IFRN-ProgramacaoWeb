@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Compras</title>
+</head>
+<body>
+    <div>
+        <p>
+            <input type="text" size="25" id="entrada" placeholder="Insira o item aqui"/><br>
+        </p>
+        <button onclick="inserir()">Adicionar</button>
+        <button onclick="apagarUltimo()">Remover</button>
+        <button onclick="limpar()">Limpar</button>
+        <button onclick="listar()">Listar</button>
+        <h1>Lista de Compras</h1>
+        <ul id="lista"></ul>
+    </div>
+    
+    <script type="text/javascript">
+    var listaUL = document.getElementById("lista"); // dessa forma a variavel podera ser usada em qualquer
+    var listaCompras = [];
+    // funcao abaixo
+        function inserir(){
+           var textoEntrada = document.getElementById("entrada").value;
+           listaUL.innerHTML += "<li><label><input type=checkbox> "+textoEntrada+"</label></li>";
+           listaCompras.push(textoEntrada);
+        }
+        function listar(){
+            listaCompras.forEach(item => {
+                listaUL.innerHTML += "<li><label><input type=checkbox> "+item+"</label></li>";
+            });
+        }
+        function limpar(){
+            listaUL.innerHTML =" ";
+        }
+        function apagarUltimo(){
+            listaCompras.pop();
+            limpar();
+            listar();
+        }
+    </script>
+    <style>
+        div {
+            background-color: #009AAF;
+            float: left;
+        }
+        p {
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        li {
+            list-style: none;
+        }
+    </style>
+</body>
+</html>
