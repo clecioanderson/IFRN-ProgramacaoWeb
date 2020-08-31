@@ -6,56 +6,117 @@
     <title>App Compras</title>
 </head>
 <body>
-    <div>
+    <div id="controle">
+        <h1>Lista de Compras</h1>
         <p><br>
-        <input type="text" size="25" id="entrada" placeholder="Insira o item aqui"/><br>
+        <input type="text" size="40" id="entrada" placeholder="Insira o item aqui"/><br>
         <button onclick="inserir()">Adicionar</button>
-        <button onclick="apagarUltimo()">Remover</button>
+        <button onclick="apagarById()">Remover</button>
         <button onclick="limpar()">Limpar</button>
         <button onclick="listar()">Listar</button>
-        </p>
-        <h1>Lista de Compras</h1>
+        </p>  
+    </div>
+    <div id="listagem">
         <ul id="lista"></ul>
     </div>
     
     <script type="text/javascript">
     var listaUL = document.getElementById("lista"); // dessa forma a variavel podera ser usada em qualquer
     var listaCompras = [];
+    
     // funcao abaixo
         function inserir(){
-           var textoEntrada = document.getElementById("entrada").value;
-           listaUL.innerHTML += "<li><label><input type=checkbox> "+textoEntrada+"</label></li>";
-           listaCompras.push(textoEntrada);
+        var textoEntrada = document.getElementById("entrada").value;
+            // Testar se o input já possui algum item, caso contrário invoca o alert solicitando a ação do usuário
+            if(textoEntrada != ""){
+                // Insere um item na lista não ordenada com o checkbox e classes CSS associadas
+                listaCompras.push(textoEntrada);
+                listaUL.innerHTML += "<li><input type='checkbox' class='caixa' id='"+textoEntrada+"' value='"+textoEntrada+"' onclick='riscar("+'"'+textoEntrada+'","label'+textoEntrada+'"'+")'> <label for='"+textoEntrada+"' class='' id='label"+textoEntrada+"'>"+textoEntrada+"</label></li>";
+                // Após inserir o item na lista apaga o conteudo do input
+                document.getElementById("entrada").value = "";
+            }else {
+                window.alert("Alerta! Insira o nome do item.");
+            }
+           
         }
+
         function listar(){
             listaCompras.forEach(item => {
-                listaUL.innerHTML += "<li><label><input type=checkbox> "+item+"</label></li>";
+                listaUL.innerHTML += "<li><input type='checkbox' class='caixa' id='"+item+"' value='"+item+"' onclick='riscar("+'"'+item+'","label'+item+'"'+")'> <label for='"+item+"' class='' id='label"+item+"'>"+item+"</label></li>";;
             });
         }
+
         function limpar(){
             listaUL.innerHTML =" ";
         }
-        function apagarUltimo(){
-            listaCompras.pop();
+
+        function apagarById(){
+            listaCompras.forEach(item => {
+                if(document.getElementById(item).checked){
+                    delete listaCompras[listaCompras.indexOf(item)];
+                }
+            }); 
             limpar();
             listar();
         }
+        /*
+        function apagarUltimo(){
+            listaCompras.pop(); 
+            limpar();
+            listar();
+        }
+        */
+        function riscar(caixa, rotulo){
+            var caixa = document.getElementById(caixa);
+            var rotulo = document.getElementById(rotulo);
+            if(caixa.checked){
+                rotulo.setAttribute("class", "riscado");
+            }else{
+                rotulo.setAttribute("class", "");
+            }
+        }
+        
     </script>
     <style>
-        div{
-            float: left;
-        }
-        p {
-            background-color: #17dbf5;
-            text-align: center;
-            padding: 10px;
-            margin: 1px;
-        }
-        h1 {
-            text-align: center;
-        }
-        li {
+        li{
             list-style: none;
+        }
+        h1{
+            color: white;
+        }
+        label{
+            font-size: 22px;
+        }
+        button{
+            margin: 4px;
+            width: 70px;
+            height: 40px;
+        }
+        #controle{
+            background-color: dodgerblue;
+            width: 330px;
+            height: 200px;
+            padding: 15px;
+            margin: auto;
+            text-align: center;
+        }
+        #listagem{
+            background-color: #b9dcff;
+            padding: 15px;
+            width: 330px;
+            margin: auto;
+        }
+        #entrada{
+            height: 30px;
+            font-size: 14px;
+        } 
+        .caixa{
+            width: 20px;
+            height: 20px;
+        }
+        .riscado{
+            font-size: 22px;
+            text-decoration: line-through;
         }
         input#entrada {
             margin-bottom: 5px;
