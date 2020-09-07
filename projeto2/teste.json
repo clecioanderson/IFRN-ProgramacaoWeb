@@ -1,0 +1,2 @@
+carrosJS = '[{"modelo":"Renegade PCD","marca":"JEEP","ano":2019},{"modelo":"Civic","marca":"Honda","ano":2017}]';
+motoJS = '{"modelo":"Twister","marca":"Yamaha","ano":2015,"cc":"50cc"}';
